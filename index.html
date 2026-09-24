@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statistics Calculators</title>
+<meta name="description" content="Free, in-browser statistics calculators and demos.">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  main { max-width: 900px; margin: 0 auto; padding: 16px; }
+  .intro { color: var(--muted); margin: 4px 0 20px; }
+  .cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .card { display: block; text-decoration: none; color: inherit; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+  .card:hover, .card:focus-visible { border-color: var(--accent); }
+  .card .pic { display: block; width: 100%; height: auto; aspect-ratio: 8 / 3; margin: -16px -16px 12px; width: calc(100% + 32px); max-width: none; background: var(--bg); border-radius: 8px 8px 0 0; border-bottom: 1px solid var(--line); }
+  .pic .axis { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  .pic .line { stroke: var(--text); stroke-width: 2.5; fill: none; }
+  .pic .fill { fill: var(--shade); opacity: .85; }
+  .pic .bar { fill: var(--bar); stroke: var(--text); stroke-width: 1; }
+  .pic .dash { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+  .pic .arrow { stroke: var(--accent); stroke-width: 2; fill: none; }
+  .card h2 { border: 0; padding: 0; margin: 0 0 6px; color: var(--accent); }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+</style>
+</head>
+<body>
+<header class="top"><h1>Statistics Calculators</h1></header>
+<main>
+  <p class="intro">Free statistics calculators and interactive demos. Everything runs in your browser on desktop or mobile.</p>
+  <div class="cards">
+    <a class="card" href="distributions/">
+      <svg class="pic" viewBox="0 0 320 120" role="img" aria-label="Normal curve with the area left of a value shaded">
+        <path class="fill" d="M20 100 C60 100 80 98 100 86 C120 70 135 22 160 22 C172 22 178 30 186 44 L186 100 Z"/>
+        <path class="line" d="M20 100 C60 100 80 98 100 86 C120 70 135 22 160 22 C185 22 200 70 220 86 C240 98 260 100 300 100"/>
+        <path class="axis" d="M14 100 H306"/>
+      </svg>
+      <h2>Distribution &amp; Probability Calculator</h2>
+      <p>Probabilities and quantiles for Normal, t, chi-square, F, binomial, Poisson and more, with a shaded plot.</p>
+    </a>
+    <a class="card" href="clt/">
+      <svg class="pic" viewBox="0 0 320 120" role="img" aria-label="A skewed population curve on the left leading to a bell-shaped histogram of sample means on the right">
+        <path class="line" d="M14 20 C22 60 40 90 70 96 C90 99 105 100 130 100"/>
+        <path class="axis" d="M12 100 H136"/>
+        <path class="arrow" d="M142 60 H162 M156 54 L162 60 L156 66"/>
+        <rect class="bar" x="170" y="89" width="9" height="11"/><rect class="bar" x="179" y="85" width="9" height="15"/><rect class="bar" x="188" y="77" width="9" height="23"/><rect class="bar" x="197" y="65" width="9" height="35"/><rect class="bar" x="206" y="52" width="9" height="48"/><rect class="bar" x="215" y="38" width="9" height="62"/><rect class="bar" x="224" y="28" width="9" height="72"/><rect class="bar" x="233" y="24" width="9" height="76"/><rect class="bar" x="242" y="28" width="9" height="72"/><rect class="bar" x="251" y="38" width="9" height="62"/><rect class="bar" x="260" y="52" width="9" height="48"/><rect class="bar" x="269" y="65" width="9" height="35"/><rect class="bar" x="278" y="77" width="9" height="23"/><rect class="bar" x="287" y="85" width="9" height="15"/><rect class="bar" x="296" y="89" width="9" height="11"/>
+        <path class="axis" d="M166 100 H310"/>
+      </svg>
+      <h2>Central Limit Theorem Demo</h2>
+      <p>Draw repeated samples from a population and watch the distribution of sample means become normal.</p>
+    </a>
+  </div>
+</main>
+<footer>Calculations run entirely in your browser.</footer>
+</body>
+</html>

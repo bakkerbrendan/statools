@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distribution and Probability Calculator</title>
+<meta name="description" content="Free distribution and probability calculator: normal, t, chi-square, F, binomial, Poisson and more.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="distributions.css">
+</head>
+<body>
+<header class="top"><a class="home" href="../">&larr; All calculators</a><h1>Distribution and Probability Calculator</h1></header>
+
+<main class="layout">
+  <section class="panel controls">
+    <h2>Distribution Characteristics</h2>
+    <label class="row">Distribution
+      <select id="dist"></select>
+    </label>
+    <fieldset>
+      <legend>Parameters</legend>
+      <div id="params"></div>
+      <button type="button" id="reset">Reset Distribution</button>
+    </fieldset>
+
+    <h2>Type of Calculation</h2>
+    <label class="radio"><input type="radio" name="mode" value="prob" checked> Input values and calculate probability</label>
+    <label class="radio"><input type="radio" name="mode" value="value"> Input probability and calculate values</label>
+  </section>
+
+  <section class="panel plot">
+    <h2 id="plotTitle">Normal Distribution</h2>
+    <div class="chart"><canvas id="chart" role="img" aria-label="Distribution plot"></canvas></div>
+  </section>
+
+  <section class="panel calc">
+    <h2>Calculations</h2>
+    <div class="calc-body">
+      <fieldset>
+        <legend id="optLegend">Probability Options</legend>
+        <div id="options"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Input</legend>
+        <div id="inputs"></div>
+      </fieldset>
+    </div>
+    <p id="result" class="result" aria-live="polite"></p>
+    <p id="error" class="error" role="alert"></p>
+  </section>
+</main>
+
+<footer>Calculations run entirely in your browser.</footer>
+<script src="../assets/stats.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

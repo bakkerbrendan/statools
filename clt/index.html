@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Limit Theorem Demo</title>
+<meta name="description" content="Interactive central limit theorem demo: draw samples and watch sample means become normal.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="clt.css">
+</head>
+<body>
+<header class="top"><a class="home" href="../">&larr; All calculators</a><h1>Central Limit Theorem Demo</h1></header>
+
+<main class="layout">
+  <aside class="controls">
+    <section class="panel">
+      <h2>Population Characteristics</h2>
+      <label class="field">Population Shape
+        <select id="shape"></select>
+      </label>
+      <fieldset>
+        <legend>Display as</legend>
+        <div class="inline">
+        <label class="radio"><input type="radio" name="display" value="curve" checked> Curve</label>
+        <label class="radio"><input type="radio" name="display" value="hist"> <span title="Histogram of 100,000 simulated values">Histogram</span></label>
+        <label class="radio"><input type="radio" name="display" value="both"> Both</label>
+        </div>
+      </fieldset>
+      <label class="field">Population Mean <input id="mean" type="number" inputmode="decimal" step="any" value="100"></label>
+      <label class="field">Population Std Dev <input id="sd" type="number" inputmode="decimal" step="any" value="15"></label>
+      <label class="field">Name of Variable <input id="varname" type="text" value="IQ"></label>
+    </section>
+
+    <section class="panel">
+      <h2>Demo Characteristics</h2>
+      <label class="field">Sample Size <input id="n" type="number" inputmode="numeric" step="1" min="1" value="25"></label>
+      <label class="field">Number of Samples <input id="k" type="number" inputmode="numeric" step="1" min="1" value="1"></label>
+      <div class="field yn"><span>Animate Illustration?</span><div class="inline">
+          <label class="radio"><input type="radio" name="animate" value="yes"> Yes</label>
+          <label class="radio"><input type="radio" name="animate" value="no" checked> No</label>
+        </div></div>
+      <div class="field yn"><span>Plot Normal Curve?</span><div class="inline">
+          <label class="radio"><input type="radio" name="normal" value="yes"> Yes</label>
+          <label class="radio"><input type="radio" name="normal" value="no" checked> No</label>
+        </div></div>
+      <div class="btns">
+        <button type="button" id="draw" class="primary">Draw Additional Samples</button>
+        <button type="button" id="resetSamples">Reset Samples</button>
+      </div>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section class="panel">
+      <details>
+        <summary>Histogram Sizing</summary>
+        <label class="field">Bin width, sample data (blank = auto) <input id="bwSample" type="number" inputmode="decimal" step="any" min="0" placeholder="auto"></label>
+        <label class="field">Bin width, sample means (blank = auto) <input id="bwMeans" type="number" inputmode="decimal" step="any" min="0" placeholder="auto"></label>
+      </details>
+    </section>
+  </aside>
+
+  <div class="charts">
+    <section class="panel">
+      <h2>Distribution of Population Data</h2>
+      <div class="chartrow">
+        <div class="chart"><canvas id="cPop" role="img" aria-label="Population distribution"></canvas></div>
+        <dl class="summary"><dt>Population Summary Table</dt>
+          <dd>Mean: <b id="popMean"></b></dd><dd>Std Dev: <b id="popSd"></b></dd></dl>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Distribution of Sample Data</h2>
+      <div class="chartrow">
+        <div class="chart"><canvas id="cSample" role="img" aria-label="Current sample histogram"></canvas></div>
+        <dl class="summary"><dt>Current Sample Summary Table</dt>
+          <dd>Mean: <b id="sMean">.</b></dd><dd>Std Dev: <b id="sSd">.</b></dd><dd>Sample: <b id="sIdx">.</b></dd></dl>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Distribution of Sample Means</h2>
+      <div class="chartrow">
+        <div class="chart"><canvas id="cMeans" role="img" aria-label="Sample means histogram"></canvas></div>
+        <dl class="summary"><dt>Sample Means Summary Table</dt>
+          <dd>Mean of Sample Means: <b id="mMean">.</b></dd><dd>Std Dev of Sample Means: <b id="mSd">.</b></dd><dd>No. of Sample Means: <b id="mCount">.</b></dd></dl>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>Simulations run entirely in your browser.</footer>
+<script src="clt.js"></script>
+</body>
+</html>

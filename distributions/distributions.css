@@ -1,0 +1,10 @@
+.layout { display: grid; gap: 12px; padding: 12px; max-width: 1100px; margin: 0 auto;
+  grid-template-columns: 300px 1fr; grid-template-areas: "controls plot" "controls calc"; }
+.controls { grid-area: controls; } .plot { grid-area: plot; } .calc { grid-area: calc; }
+.calc-body { display: grid; grid-template-columns: 1fr 200px; gap: 12px; align-items: start; }
+.result { font-size: 1.15rem; font-weight: 600; margin: 4px 0 0; word-break: break-word; }
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; grid-template-areas: "controls" "plot" "calc"; padding: 8px; }
+  .calc-body { grid-template-columns: 1fr; }
+}

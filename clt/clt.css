@@ -1,0 +1,54 @@
+.layout { display: grid; gap: 12px; padding: 12px; max-width: 1200px; margin: 0 auto; grid-template-columns: 290px 1fr; align-items: start; }
+.controls, .charts { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.chartrow { display: grid; grid-template-columns: 1fr 210px; gap: 12px; align-items: start; }
+.chartrow .chart { height: 230px; }
+.summary { margin: 0; border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; font-size: .9rem; }
+.summary dt { color: var(--muted); margin-bottom: 4px; }
+.summary dd { margin: 2px 0; }
+.btns { display: flex; flex-direction: column; gap: 6px; }
+.btns button { margin: 0; }
+summary { cursor: pointer; font-weight: 600; margin-bottom: 8px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; padding: 8px; }
+}
+@media (max-width: 640px) {
+  .chartrow { grid-template-columns: 1fr; }
+  .chartrow .chart { height: 210px; }
+}
+
+/* Compact sidebar */
+.controls { gap: 8px; }
+.controls .panel { padding: 8px 10px; }
+.controls h2 { font-size: .95rem; margin: 0 0 6px; padding-bottom: 4px; }
+.controls .field { flex-direction: row; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+.controls .field input[type=number], .controls .field input[type=text] { width: 96px; flex: none; min-height: 30px; padding: 3px 8px; }
+.controls .field select { width: 140px; flex: none; min-height: 30px; padding: 3px 8px; }
+.controls fieldset { margin: 0 0 6px; padding: 2px 10px 4px; }
+.controls .radio { padding: 1px 0; }
+.controls .radio input { margin: 3px 0 0; }
+.controls .inline { gap: 12px; flex-wrap: nowrap; }
+.controls .yn { margin-bottom: 2px; }
+.controls button { min-height: 32px; padding: 4px 10px; }
+.controls .btns { flex-direction: row; flex-wrap: wrap; }
+.controls .btns button { flex: 1 1 auto; }
+.controls .error { margin: 4px 0 0; min-height: 0; }
+.controls summary { margin: 0 0 6px; }
+.controls details:not([open]) summary { margin-bottom: 0; }
+
+/* Desktop: fill the viewport height; charts share the space equally. Sidebar scrolls only if the window is very short. */
+@media (min-width: 901px) {
+  body { min-height: 100dvh; display: flex; flex-direction: column; }
+  .layout { flex: 1; width: 100%; max-width: 2400px; min-height: 480px; padding: 8px 12px; gap: 10px;
+    grid-template-rows: minmax(0, 1fr); align-items: stretch; }
+  .controls { overflow-y: auto; min-height: 0; }
+  .charts { min-height: 0; gap: 8px; }
+  .charts .panel { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; padding: 8px 12px; }
+  .charts h2 { margin: 0 0 6px; padding-bottom: 4px; font-size: .95rem; }
+  .chartrow { flex: 1; min-height: 0; align-items: stretch; }
+  .chartrow .chart { height: auto; min-height: 100px; }
+  .chartrow .chart canvas { position: absolute; inset: 0; }
+  .summary { align-self: start; }
+  footer { padding: 4px; }
+  .top { padding: 8px 16px; }
+}
