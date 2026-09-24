@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statistical Power Calculator</title>
+<meta name="description" content="Free statistical power and sample size calculator for t-tests, proportions, correlation and ANOVA.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="power.css">
+</head>
+<body>
+<header class="top"><a class="home" href="../">&larr; All calculators</a><h1>Statistical Power Calculator</h1></header>
+
+<main class="layout">
+  <section class="panel controls">
+    <h2>Test</h2>
+    <label class="row">Statistical test
+      <select id="test"></select>
+    </label>
+    <label class="row">Solve for
+      <select id="solve">
+        <option value="power">Power</option>
+        <option value="n">Sample size</option>
+      </select>
+    </label>
+    <fieldset>
+      <legend>Inputs</legend>
+      <div id="inputs"></div>
+    </fieldset>
+    <fieldset id="effectBox">
+      <legend>Effect size formula</legend>
+      <div id="formula" class="formula"></div>
+      <p id="formulaNote" class="detail"></p>
+    </fieldset>
+    <fieldset>
+      <legend>Significance</legend>
+      <label class="field">Significance level (&alpha;)<input type="number" inputmode="decimal" step="any" id="alpha" value="0.05"></label>
+      <label class="field" id="tailsRow">Alternative hypothesis
+        <select id="tails">
+          <option value="two">Two-sided</option>
+          <option value="one">One-sided (effect in the stated direction)</option>
+        </select>
+      </label>
+    </fieldset>
+  </section>
+
+  <section class="panel dist">
+    <h2>Type I and Type II Error</h2>
+    <div class="chart"><canvas id="distChart" role="img" aria-label="Null and alternative distributions with the type I and type II error regions shaded"></canvas></div>
+    <ul class="legend" id="legend">
+      <li><i class="sw a"></i><span id="lgA"></span></li>
+      <li><i class="sw b"></i><span id="lgB"></span></li>
+      <li><i class="sw p"></i><span id="lgP"></span></li>
+    </ul>
+  </section>
+
+  <section class="panel plot">
+    <h2 id="plotTitle">Power Curve</h2>
+    <div class="chart"><canvas id="chart" role="img" aria-label="Power as a function of sample size"></canvas></div>
+  </section>
+
+  <section class="panel calc">
+    <h2>Result</h2>
+    <p id="result" class="result" aria-live="polite"></p>
+    <p id="detail" class="detail"></p>
+    <p id="error" class="error" role="alert"></p>
+  </section>
+</main>
+
+<footer>Calculations run entirely in your browser.</footer>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="../assets/stats.js"></script>
+<script defer src="power.js"></script>
+<script defer src="app.js"></script>
+</body>
+</html>
